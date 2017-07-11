@@ -1,0 +1,35 @@
+---
+title: "Getting and Cleaning Data - Course Project"
+author: "Michael Meade"
+date: "06/26/2017"
+---
+## Project Description
+
+The R script 'run_analysis.R' reads Mean and Standard Deviation columns from two data files: 'X_train.txt' and 'X_test.txt' and loads them into separate data frames ('train' and 'test'), then combines them into one data frame ('both.txt').
+
+This is done after adding a 'Subject' column to designate one of the 30 subjects for each sample observation (row),which we obtain from the data files 'subject_train.txt' and 'subject_test.txt' 
+
+We also added an 'Activity' column to designate the specific Activity for each sample observation (row), which we obtain from the data files 'y_train.txt' and 'y_test.txt'.
+
+For the Activity column, we converted the integer variable (1-6) to a Factor, and then labelled each of the six factors descriptively using their appropriate labels:
+
+1 WALKING
+2 WALKING_UPSTAIRS
+3 WALKING_DOWNSTAIRS
+4 SITTING
+5 STANDING
+6 LAYING
+
+
+We then summarize each of the 66 variables, taking the mean by Subject number and Activity in data frame ('both_means.txt')
+
+We use the 'cols' variable to select the 66 column numbers which are Mean and SD columns
+
+The 'colNames' vector applies the variable names (including 'Subject' and 'Activity') to each of the 68 columns. 
+
+The file 'both_means.txt' calculates the mean of each variable by Subject number and Activity using the 'dplyr' package in R and the summarize_all() function after grouping the data by Subject and Activity.
+
+Data Description and variable names are included in 'CodeBook.Rmd'
+
+
+
